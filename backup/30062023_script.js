@@ -196,19 +196,19 @@ window.addEventListener("DOMContentLoaded", (event) => {
         //start: "bottom 80%",
         start: "clamp(bottom bottom)",
         end: "bottom 80%",
-        scrub: 2,
+        scrub: true,
         ease: "none",
         pin: "[hero_section]"
       }
     })
     .to("[hero_logo-right]", {
-      xPercent: 200,
+      xPercent: 150,
       duration: 0.8
     })
     .to(
       "[hero_logo-left]",
       {
-        xPercent: -200,
+        xPercent: -150,
         duration: 0.8
       },
       "<"
