@@ -202,14 +202,14 @@ window.addEventListener("DOMContentLoaded", (event) => {
       }
     })
     .to("[hero_logo-right]", {
-      xPercent: 200,
-      duration: 0.4
+      xPercent: 150,
+      duration: 0.8
     })
     .to(
       "[hero_logo-left]",
       {
-        xPercent: -200,
-        duration: 0.4
+        xPercent: -150,
+        duration: 0.8
       },
       "<"
     );
