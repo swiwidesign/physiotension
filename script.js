@@ -195,7 +195,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         trigger: "[hero_section]",
         start: "clamp(top 20%)",
         end: "bottom bottom",
-        scrub: 1,
+        scrub: true,
         ease: "none"
         //pin: "[hero_section]"
       }
