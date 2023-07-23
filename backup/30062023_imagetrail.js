@@ -30,16 +30,17 @@
   });
 
   // Respect scroll with image trail
-  /*
-  let lastScrollY = window.scrollY || 0;
-  window.addEventListener("scroll", (ev) => {
-    mousePos = {
-      ...mousePos,
-      y: mousePos.y + window.scrollY - lastScrollY
-    };
+  /*     
+ let lastScrollY = window.scrollY || 0;
+    window.addEventListener('scroll', (ev) => {
+      mousePos = {
+        ...mousePos,
+        y: mousePos.y + window.scrollY - lastScrollY,
+      };
 
-    lastScrollY = window.scrollY;
-  });*/
+      lastScrollY = window.scrollY;
+    });
+     */
 
   // gets the distance from the current mouse position to the last recorded mouse position
   const getMouseDistance = () => {

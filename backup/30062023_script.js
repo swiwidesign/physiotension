@@ -193,21 +193,22 @@ window.addEventListener("DOMContentLoaded", (event) => {
     .timeline({
       scrollTrigger: {
         trigger: "[hero_section]",
-        start: "clamp(top 20%)",
-        end: "bottom bottom",
+        //start: "bottom 80%",
+        start: "clamp(bottom bottom)",
+        end: "bottom 80%",
         scrub: true,
-        ease: "none"
-        //pin: "[hero_section]"
+        ease: "none",
+        pin: "[hero_section]"
       }
     })
-    .to(".hero_logo-right", {
-      xPercent: 200,
+    .to("[hero_logo-right]", {
+      xPercent: 150,
       duration: 0.8
     })
     .to(
-      ".hero_logo-left",
+      "[hero_logo-left]",
       {
-        xPercent: -200,
+        xPercent: -150,
         duration: 0.8
       },
       "<"
