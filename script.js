@@ -115,16 +115,6 @@ function runSplit() {
 }
 runSplit();
 
-// ————— Update on window resize
-let windowWidth = $(window).innerWidth();
-window.addEventListener("resize", function () {
-  if (windowWidth !== $(window).innerWidth()) {
-    windowWidth = $(window).innerWidth();
-    splitText.revert();
-    runSplit();
-  }
-});
-
 // ———— animation
 const staggerLinks = document.querySelectorAll("[stagger-link]");
 staggerLinks.forEach((link) => {
