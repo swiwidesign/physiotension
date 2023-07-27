@@ -107,47 +107,51 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   //Button
 
-    let splitText;
-function runSplit() {
-  splitText = new SplitType("[stagger-link-text]", {
-    types: "words, chars"
+  let buttonSplit = new SplitType("[button-split]", {
+    types: "words, chars",
+    tagName: "span"
   });
-}
-runSplit();
+  gsap
+    .matchMedia()
+    .add(
+      "(min-width: 992px) and (prefers-reduced-motion: no-preference)",
+      () => {
+        $(".button").each(function (index) {
+          let listOne = $(this).find(
+            ".button_textwrapper .heading-medium.is-1 .char"
+          );
+          let listTwo = $(this).find(
+            ".button_textwrapper .heading-medium.is-2 .char"
+          );
 
-// ————— Update on window resize
-let windowWidth = $(window).innerWidth();
-window.addEventListener("resize", function () {
-  if (windowWidth !== $(window).innerWidth()) {
-    windowWidth = $(window).innerWidth();
-    splitText.revert();
-    runSplit();
-  }
-});
+          // Button Timeline
 
-// ———— animation
-const staggerLinks = document.querySelectorAll("[stagger-link]");
-staggerLinks.forEach((link) => {
-  const letters = link.querySelectorAll("[stagger-link-text] .char");
-  link.addEventListener("mouseenter", function () {
-    gsap.to(letters, {
-      yPercent: -100,
-      duration: 0.5,
-      ease: "power4.inOut",
-      stagger: { each: 0.03, from: "start" },
-      overwrite: true
-    });
-  });
-  link.addEventListener("mouseleave", function () {
-    gsap.to(letters, {
-      yPercent: 0,
-      duration: 0.4,
-      ease: "power4.inOut",
-      stagger: { each: 0.03, from: "random" }
-    });
-  });
-});
-
+          let tl = gsap.timeline({ paused: true });
+          tl.to(listOne, {
+            translateY: "-100%",
+            stagger: { each: 0.02 },
+            ease: "power3.out",
+            duration: 0.4
+          });
+          tl.to(
+            listTwo,
+            {
+              translateY: "-100%",
+              stagger: { each: 0.02 },
+              ease: "power3.out",
+              duration: 0.4
+            },
+            "<10%"
+          );
+          $(this).on("mouseenter", function () {
+            tl.restart();
+          });
+          $(this).on("mouseleave", function () {
+            tl.reverse();
+          });
+        });
+      }
+    );
 
   //Intro all pages
   let tlintro = gsap
