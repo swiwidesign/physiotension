@@ -106,14 +106,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
     );
 
   //Button
-
-    let splitText;
-function runSplit() {
-  splitText = new SplitType("[stagger-link-text]", {
-    types: "words, chars"
-  });
-}
-runSplit();
+    
+    let buttonSplit = new SplitType("[stagger-link-text]", {
+    types: "words, chars",  });
 
 // ———— animation
 const staggerLinks = document.querySelectorAll("[stagger-link]");
