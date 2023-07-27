@@ -106,33 +106,52 @@ window.addEventListener("DOMContentLoaded", (event) => {
     );
 
   //Button
-    
-    let buttonSplit = new SplitType("[stagger-link-text]", {
-    types: "words, chars",  });
 
-// ———— animation
-const staggerLinks = document.querySelectorAll("[stagger-link]");
-staggerLinks.forEach((link) => {
-  const letters = link.querySelectorAll("[stagger-link-text] .char");
-  link.addEventListener("mouseenter", function () {
-    gsap.to(letters, {
-      yPercent: -100,
-      duration: 0.5,
-      ease: "power4.inOut",
-      stagger: { each: 0.03 },
-      overwrite: true
-    });
+  let buttonSplit = new SplitType("[button-split]", {
+    types: "words, chars",
+    tagName: "span"
   });
-  link.addEventListener("mouseleave", function () {
-    gsap.to(letters, {
-      yPercent: 0,
-      duration: 0.4,
-      ease: "power4.inOut",
-      stagger: { each: 0.03}
-    });
-  });
-});
+  gsap
+    .matchMedia()
+    .add(
+      "(min-width: 992px) and (prefers-reduced-motion: no-preference)",
+      () => {
+        $(".button").each(function (index) {
+          let listOne = $(this).find(
+            ".button_textwrapper .heading-medium.is-1 .char"
+          );
+          let listTwo = $(this).find(
+            ".button_textwrapper .heading-medium.is-2 .char"
+          );
 
+          // Button Timeline
+
+          let tl = gsap.timeline({ paused: true });
+          tl.to(listOne, {
+            translateY: "-100%",
+            stagger: { each: 0.02 },
+            ease: "power3.out",
+            duration: 0.4
+          });
+          tl.to(
+            listTwo,
+            {
+              translateY: "-100%",
+              stagger: { each: 0.02 },
+              ease: "power3.out",
+              duration: 0.4
+            },
+            "<10%"
+          );
+          $(this).on("mouseenter", function () {
+            tl.restart();
+          });
+          $(this).on("mouseleave", function () {
+            tl.reverse();
+          });
+        });
+      }
+    );
 
   //Intro all pages
   let tlintro = gsap
