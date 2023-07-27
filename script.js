@@ -119,7 +119,7 @@ staggerLinks.forEach((link) => {
       yPercent: -100,
       duration: 0.5,
       ease: "power4.inOut",
-      stagger: { each: 0.03, from: "start" },
+      stagger: { each: 0.03 },
       overwrite: true
     });
   });
@@ -128,7 +128,7 @@ staggerLinks.forEach((link) => {
       yPercent: 0,
       duration: 0.4,
       ease: "power4.inOut",
-      stagger: { each: 0.03, from: "random" }
+      stagger: { each: 0.03}
     });
   });
 });
