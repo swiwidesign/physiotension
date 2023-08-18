@@ -1,3 +1,4 @@
+window.addEventListener("DOMContentLoaded", (event) => {
 {
   // body element
   const body = document.body;
@@ -224,3 +225,4 @@
     new ImageTrail();
   });
 }
+    });
