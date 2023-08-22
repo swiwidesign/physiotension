@@ -199,7 +199,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         // how fast are the images following the mouse
         .to(img.DOM.el, 0.8, frames[1], 0)
         // how long for the images to disappear
-        .to(img.DOM.el, 0, frames[4], 0.8);
+        .to(img.DOM.el, 0, frames[2], 0.8);
 
       ++this.zIndexVal;
       this.imgPosition =
