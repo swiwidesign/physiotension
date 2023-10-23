@@ -195,7 +195,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       scrollTrigger: {
         trigger: "[hero_section]",
         start: "clamp(top 20%)",
-        end: "clamp(bottom bottom",
+        end: "clamp(bottom bottom)",
         scrub: true,
         ease: "none"
         //pin: "[hero_section]"
